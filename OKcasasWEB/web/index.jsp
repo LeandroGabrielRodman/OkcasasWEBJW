@@ -14,43 +14,47 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
         <link href="CSS/Style.css" rel="stylesheet" type="text/css"/>
         <title></title>
     </head>
 
     <body>
-        
 
-        <nav class="navbar navbar-inverse">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="Inicio.jsp">OKCasas</a>
+
+        <nav class="navbar navbar-expand-lg navbar-toggler bg-dark absolute-top" role="navigation">
+            <div class="container">
+                <li><img src="IMG/circle-cropped.png" width="50px"></li>
+                <a class="navbar-brand" href="Inicio.jsp">Inicio</a>
+                <div class="collapse navbar-collapse" id="exCollapsingNavbar">
+                    <ul class="nav navbar-nav">
+                        <li class="nav-item"><a href="SolicitudInspeccion.jsp" class="nav-link">Solicitar inspección</a></li>
+                        <li class="nav-item"><a href="HistorialInspeccion.jsp" class="nav-link">Historial de inspecciones</a></li>
+                        <li class="nav-item"><a href="SeguimientoInspeccion.jsp" class="nav-link">Seguimiento</a></li>
+                        <li class="nav-item"><a href="#" class="nav-link">Ayuda</a></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="nav-item"><a href="RegistrarUsuario.jsp" class="nav-link">Crear cuenta</a></li>
+                        <li class="nav-item"><a href="Login.jsp" class="nav-link">Iniciar Sesion</a></li>
+                    </ul>
+
                 </div>
-                <ul class="nav navbar-nav ">
-                    <li><img src="IMG/circle-cropped.png" width="50px" alt=""/></li>
-                    <li><a href="#">Solicitar inspeccion</a></li>
-                    <li><a href="#">Historial de inspecciones</a></li>
-                    <li><a href="#">Seguimiento</a></li>  
-                    <li><a href="#">Ayuda</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                </ul>
             </div>
         </nav>
 
-
-
-        
-        
+    </nav>
 
 
 
 
-  
+
+
+
+
+
 </body>
 </html>

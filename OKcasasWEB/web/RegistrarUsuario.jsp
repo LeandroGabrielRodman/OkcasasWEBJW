@@ -17,20 +17,7 @@
 <title>Registro</title>
 </head>
 
-<header class="header">
-    <div class="container logo-nav-container">
-        <a href="index.html" class="logo"><img width="55px" height="55px" src="https://cdn.freebiesupply.com/logos/large/2x/ok-1-logo-png-transparent.png"></a>
-            <nav class="navigation">
-                <ul class="show">
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="#">Solicitar inspeccion</a></li>
-                    <li><a href="#">Historial</a></li>
-                    <li><a href="#">Seguimiento</a></li>
-                    <li><a href="#">Salir</a></li>
-                </ul>
-            </nav>
-    </div>
-</header>
+
 
 <body>
 <%@include file="index.jsp" %>
@@ -92,17 +79,12 @@
 
             </div>
 
-           
-
-            
-
         </div>
         
     </main>
 
 
 </body>
-
 
 <footer class= "footer">
     <div class= "container">
@@ -111,7 +93,4 @@
 </footer>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </html>

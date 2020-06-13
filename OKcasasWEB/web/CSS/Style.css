@@ -10,13 +10,71 @@ and open the template in the editor.
 
 body 
 {
-color: #333;
-font-family: Georgia, 'Times New Roman', Times, serif;
-font-size: 2rem;
-margin :0;
+    color: #333;
+    font-family: 'Lato', sans-serif;
+    font-size: 2rem;
+    margin :0;
+    background-color: whitesmoke;
+
 
 }
 
 
-/* //////////////////////////////////////////na que vere */
+.Contenedor-parrafo
+{
+    text-align: center;
+    position: relative;
 
+}
+
+.nav-link
+{
+
+    color:#ffffff;
+}
+.navbar-brand
+{
+    color:#ffffff;
+}
+
+.Titulos
+{
+    width: 100%;
+    font-size: 22PX;
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.parrafos
+{
+    color:#ffffff;
+
+    font-size:18px; 
+    font-family: 'Lato', sans-serif;; 
+    text-justify: distribute; 
+}
+
+.parrafos-2
+{
+    color:#ffffff;
+    font-size:19px; 
+    font-family: 'Lato', sans-serif;; 
+    text-justify: auto;  
+
+}
+
+.parrafos-3
+{
+    color:#ffffff;
+    font-size:19px; 
+    font-family: 'Lato', sans-serif; 
+    text-justify: auto;  
+    text-decoration: underline;
+
+}
+
+.ParrafoP
+{
+    font-size: 15px;
+    color: white;
+}

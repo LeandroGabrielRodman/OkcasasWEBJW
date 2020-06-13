@@ -18,20 +18,8 @@
 </head>
 <body>
     <%@include file="index.jsp" %>
-    <header class="header">
-        <div class="container logo-nav-container">
-            <a href="index.html" class="logo"><img width="55px" height="55px" src="https://cdn.freebiesupply.com/logos/large/2x/ok-1-logo-png-transparent.png"></a>
-                <nav class="navigation">
-                    <ul class="show">
-                        <li><a href="index.html">Inicio</a></li>
-                        <li><a href="#">Solicitar inspeccion</a></li>
-                        <li><a href="#">Historial</a></li>
-                        <li><a href="#">Seguimiento</a></li>
-                        <li><a href="#">Salir</a></li>
-                    </ul>
-                </nav>
-        </div>
-    </header>
+  
+
 
     <div class="container containerazul mt-5 pb-5 ">
 
