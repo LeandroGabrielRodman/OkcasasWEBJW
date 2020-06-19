@@ -20,6 +20,7 @@ body
 }
 
 
+
 .Contenedor-parrafo
 {
     text-align: center;
@@ -32,18 +33,24 @@ body
 
     color:#ffffff;
 }
-.navbar-brand
-{
-    color:#ffffff;
-}
+
 
 .Titulos
+{
+    width: 100%;
+    font-size: 22PX;
+    color: #66ccff;
+    text-decoration: underline;
+}
+
+.Titulos1
 {
     width: 100%;
     font-size: 22PX;
     color: #ffffff;
     text-decoration: underline;
 }
+
 
 .parrafos
 {
@@ -77,4 +84,31 @@ body
 {
     font-size: 15px;
     color: white;
+    text-justify:initial;
+}
+
+.SolicitudI
+{
+ margin-top: 20px;
+ margin-bottom: 20px;
+ background: #3498DB ;
+}
+.form-control
+{
+    width: 400px;
+    margin: 0 auto;
+}
+.footer
+{
+    
+    color: white;
+    background: #424242;
+    font-family: 'Lato', sans-serif;
+    margin-bottom: 0;
+    padding-bottom: 0;
+
+}
+.container-footer
+{
+    width: 100%;
 }

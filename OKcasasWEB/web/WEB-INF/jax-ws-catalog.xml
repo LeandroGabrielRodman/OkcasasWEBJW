@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:39554/OKcasasWEB/WSLOGIN?WSDL" uri="wsdl/localhost_39554/OKcasasWEB/WSLOGIN.wsdl"/>
+    <system systemId="http://localhost:39554/OKcasasWEB/WSLOGIN?xsd=1" uri="wsdl/localhost_39554/OKcasasWEB/WSLOGIN.xsd_1.xsd"/>
+    <system systemId="http://localhost:39554/WS_LOGIN/WSLOGIN?Tester" uri="wsdl/localhost_39554/WS_LOGIN/WSLOGIN.tester"/>
+    <system systemId="http://localhost:39554/WS_LOGIN/WSLOGIN?WSDL" uri="wsdl/localhost_39554/WS_LOGIN/WSLOGIN.wsdl"/>
+    <system systemId="http://localhost:39554/WS_LOGIN/WSLOGIN?xsd=1" uri="wsdl/localhost_39554/WS_LOGIN/WSLOGIN.xsd_1.xsd"/>
+</catalog>

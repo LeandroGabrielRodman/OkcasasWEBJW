@@ -103,12 +103,13 @@
     </main>
 
     
-    <footer class= "footer">
-        <div class= "container">
-            <p>Pagina diseñada por Grupo 4</p>
+      <footer class="footer text-center">
+        <div class="container-footer">
+            <p>
+                2020 @OKCASAS.COM Todos los derechos reservados
+            </p>
         </div>
     </footer>
-
 
 </body>
 </html>

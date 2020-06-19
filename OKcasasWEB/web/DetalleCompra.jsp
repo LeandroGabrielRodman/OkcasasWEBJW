@@ -4,9 +4,10 @@
     Author     : lanxi
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
-<!DOCTYPE html>
+
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -88,12 +89,13 @@
     </main>
 
 
-<footer class= "footer">
-    <div class= "container">
-        <p>Pagina diseñada por Grupo 4</p>
-    </div>
-</footer>
-
+     <footer class="footer text-center">
+        <div class="container-footer">
+            <p>
+                2020 @OKCASAS.COM Todos los derechos reservados
+            </p>
+        </div>
+    </footer>
 
 </body>
 </html>

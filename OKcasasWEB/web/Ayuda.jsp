@@ -1,24 +1,19 @@
 <%-- 
-    Document   : RevisarInforme
-    Created on : 10-06-2020, 17:39:43
+    Document   : Ayuda
+    Created on : 18-06-2020, 7:12:06
     Author     : lanxi
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <meta name="Description" content="Enter your description here"/>
-
-        <title>Informe</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
     </head>
     <body>
         <%@include file="index.jsp" %>
-
+        <h1>Hello World!</h1>
     </body>
     <footer class="footer text-center">
         <div class="container-footer">

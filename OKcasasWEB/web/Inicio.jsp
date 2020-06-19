@@ -15,6 +15,22 @@
     <body>
         <%@include file="index.jsp" %>
 
+        <c:if test="${tipo!=null}">
+            <c:if test="${tipo=='A'}"> 
+                <div class="alert alert-info">Bienvenido ${username}!</div>
+            </c:if>
+        </c:if>
+        <c:if test="${tipo!=null}">
+            <c:if test="${tipo=='C'}"> 
+                <div class="alert alert-info">Bienvenido ${username}!</div>
+            </c:if>
+        </c:if>
+         <c:if test="${tipo!=null}">
+            <c:if test="${tipo=='T'}"> 
+                <div class="alert alert-info">Bienvenido Tecnico ${username}!</div>
+            </c:if>
+        </c:if>
+
         <div id="demo" class="carousel slide" data-ride="carousel">
 
             <!-- Indicators -->
@@ -50,9 +66,9 @@
         <div class="Contenedor-parrafo">
             <div class="row">
                 <!-- Parrafo izquierdo  -->
-                <div class="col-4 resposive" style=" background-color:#333 ">
+                <div class="col-4 " style=" background-color:#333 ">
                     <p class="font_8">
-                        <span class="Titulos text-center"> QUE HACEMOS?
+                        <span class="Titulos text-center"> ¿QUE HACEMOS?
                         </span>
                         <br>
                         <span class="parrafos text-center">
@@ -64,7 +80,7 @@
                 </div> 
 
                 <!-- Parrafo central  -->
-                <div class="col-4 resposive" style="background-color: #5D5D5D">
+                <div class="col-4" style="background-color: #5D5D5D">
                     <p class="font_8">
                         <span class="Titulos text-center"> 
                             NUESTRO SERVICIO SE BASA EN 
@@ -72,31 +88,67 @@
                         </span>
                         <br>
                         <span class="parrafos-2 text-center">
-                           -Verficacion de instalaciones y terminaciones <br>
+                            -Verficacion de instalaciones y terminaciones <br>
                             -Medicion de metros cuadrados de la vivienda <br>
                             -Inspección de luz,instalaciones sanitarias y gas <br>
-                            -Termografías
+                            -Termografías 
+                            <br>
+                            <img src="IMG/circle-cropped.png" width="100px"
                         </span>
                     </p>
                 </div>
-                
+
                 <!-- Parrafo Derecho  -->
-                <div class="col-4 resposive" style="background-color: darkcyan"> 
+                <div class="col-4" style="background-color: #00aae4"> 
                     <p class="font_8">
-                        <span class="Titulos text-center"> ¿COMO TRABAJAMOS?
+                        <span class="Titulos1 text-center"> ¿COMO TRABAJAMOS?
                         </span>
                         <br>
-                        <span class="parrafos-3 ">
+                        <span class="parrafos-3">
                             -Solicite su inspeccion
-                            <p class="ParrafoP">
-                                Somteta su inmbueble a la inspeccion más
-                                comlpleta y efectiva del mercado.
-                            </p>
+
                         </span>  
+                    <p class="ParrafoP">
+                        Someta su inmueble a la inspeccion más completa y efectiva del mercado.
                     </p>
+                    <span class="parrafos-3">
+                        -Inspeccionamos su inmueble    
+                    </span>  
+                    <p class="ParrafoP">
+                        Personal altamente capacitado y la mejor tecnologia disponible para usted.
+                    </p>
+                    <span class="parrafos-3">
+                        -Emitimos un sólido informe 
+                    </span>  
+                    <p class="ParrafoP">
+                        Sumamente respetado,con asistencia y respaldo OKCasas.
+                    </p>
+                    <span class="parrafos-3">
+                        - Chequeamos las reparaciones
+                    </span>
+                    <p class="ParrafoP">
+                        Revisamos las reparaciones y su enterno,identificando daños colaterales.
+                    </p>
+                    <span class="parrafos-3">
+                        - Recepciona con tranquilidad!
+                    </span>
+                    <p class="ParrafoP">
+                        Viva la experiencia OKCasas,
+                        Clientes 100% Satisfechos
+                    </p> 
                 </div>
             </div>
         </div>
 
+
     </body>
+
+    <footer class="footer text-center">
+        <div class="container-footer">
+            <p>
+                2020 @OKCASAS.COM Todos los derechos reservados
+            </p>
+        </div>
+    </footer>
+
 </html>

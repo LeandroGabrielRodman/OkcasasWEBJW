@@ -25,36 +25,51 @@
     <body>
 
 
-        <nav class="navbar navbar-expand-lg navbar-toggler bg-dark absolute-top" role="navigation">
-            <div class="container">
-                <li><img src="IMG/circle-cropped.png" width="50px"></li>
-                <a class="navbar-brand" href="Inicio.jsp">Inicio</a>
-                <div class="collapse navbar-collapse" id="exCollapsingNavbar">
-                    <ul class="nav navbar-nav">
-                        <li class="nav-item"><a href="SolicitudInspeccion.jsp" class="nav-link">Solicitar inspección</a></li>
-                        <li class="nav-item"><a href="HistorialInspeccion.jsp" class="nav-link">Historial de inspecciones</a></li>
-                        <li class="nav-item"><a href="SeguimientoInspeccion.jsp" class="nav-link">Seguimiento</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Ayuda</a></li>
-                    </ul>
+        <nav class="navbar navbar-expand-lg navbar-toggler bg-dark " >
+            <img src="IMG/circle-cropped.png" width="75px">
+            <div class="container-fluid">
 
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="nav-item"><a href="RegistrarUsuario.jsp" class="nav-link">Crear cuenta</a></li>
-                        <li class="nav-item"><a href="Login.jsp" class="nav-link">Iniciar Sesion</a></li>
-                    </ul>
+                <ul class="nav navbar-nav ">
+                    <li class="nav-item"><a href="Inicio.jsp" class="nav-link">Inicio</a></li>
+                        <c:if test="${tipo!=null}">
+                            <c:if test="${tipo=='A'}">
+                            <!OPCIONES DEL ADMINISTRADOR>
+                            <li class="nav-item"><a href="SolicitudInspeccion.jsp" class="nav-link">Solicitar inspección</a></li>
+                            <li class="nav-item"><a href="HistorialInspeccion.jsp" class="nav-link">Historial de inspecciones</a></li>
+                            <li class="nav-item"><a href="SeguimientoInspeccion.jsp" class="nav-link">Seguimiento de proceso de inspección</a></li>
+                            <li class="nav-item"><a href="Reporte.jsp" class="nav-link">Generar Reporte de Inspección</a></li>
+                            <li class="nav-item"><a href="InspeccionesSolicitadas.jsp" class="nav-link">Calendario de inspecciones solicitadas</a></li>
+                            <li class="nav-item"><a href="Ayuda.jsp" class="nav-link">Ayuda</a></li>
+                            </c:if>
+                            <c:if test="${tipo=='C'}">
+                            <!OPCIONES DEL CLIENTE>
+                            <li class="nav-item"><a href="SolicitudInspeccion.jsp" class="nav-link">Solicitar inspección</a></li>
+                            <li class="nav-item"><a href="HistorialInspeccion.jsp" class="nav-link">Historial de inspecciones</a></li>
+                            <li class="nav-item"><a href="SeguimientoInspeccion.jsp" class="nav-link">Seguimiento de proceso de inspección</a></li>
+                            <li class="nav-item"><a href="Ayuda.jsp" class="nav-link">Ayuda</a></li>
+                            </c:if>
+                            <c:if test="${tipo=='T'}">
+                            <!OPCIONES DEL TECNICO>
+                            <li class="nav-item"><a href="Reporte.jsp" class="nav-link">Generar Reporte de Inspección</a></li>
+                            <li class="nav-item"><a href="InspeccionesSolicitadas.jsp" class="nav-link">Calendario de inspecciones solicitadas</a></li>
+                            <li class="nav-item"><a href="Ayuda.jsp" class="nav-link">Ayuda</a></li>
+                            </c:if>
+                        </c:if>
 
-                </div>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                        <c:if test="${tipo!=null}">
+                        <!OPCIONES DE INICIO DE SESION>
+                        <li class="nav-item"><a href="servletLogin" class="nav-link">Cerrar Sesión</a></li>
+                        </c:if>
+                        <c:if test="${tipo==null}">
+                        <li class="nav-item "><a href="Login.jsp" class="nav-link ">Iniciar Sesión</a></li>
+                        <li class="nav-item "><a href="RegistrarUsuario.jsp" class="nav-link ">Crear cuenta</a></li>
+                        </c:if>
+
+                </ul>
             </div>
+
         </nav>
-
-    </nav>
-
-
-
-
-
-
-
-
-
-</body>
+    </body>
 </html>
