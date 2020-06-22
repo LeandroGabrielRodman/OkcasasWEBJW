@@ -27,7 +27,7 @@
         </c:if>
          <c:if test="${tipo!=null}">
             <c:if test="${tipo=='T'}"> 
-                <div class="alert alert-info">Bienvenido Tecnico ${username}!</div>
+                <div class="alert alert-info">Bienvenido ${username}!</div>
             </c:if>
         </c:if>
 

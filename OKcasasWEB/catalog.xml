@@ -5,4 +5,6 @@
     <system systemId="http://localhost:39554/WS_LOGIN/WSLOGIN?Tester" uri="src/conf/xml-resources/web-service-references/WSLOGIN_Tester/wsdl/localhost_39554/WS_LOGIN/WSLOGIN.tester"/>
     <system systemId="http://localhost:39554/WS_LOGIN/WSLOGIN?WSDL" uri="src/conf/xml-resources/web-service-references/WSLOGIN/wsdl/localhost_39554/WS_LOGIN/WSLOGIN.wsdl"/>
     <system systemId="http://localhost:39554/WS_LOGIN/WSLOGIN?xsd=1" uri="src/conf/xml-resources/web-service-references/WSLOGIN/wsdl/localhost_39554/WS_LOGIN/WSLOGIN.xsd_1.xsd"/>
+    <system systemId="http://localhost:14605/WS_LOGIN/WSLOGIN?WSDL" uri="src/conf/xml-resources/web-service-references/WSLOGIN/wsdl/localhost_14605/WS_LOGIN/WSLOGIN.wsdl"/>
+    <system systemId="http://localhost:14605/WS_LOGIN/WSLOGIN?xsd=1" uri="src/conf/xml-resources/web-service-references/WSLOGIN/wsdl/localhost_14605/WS_LOGIN/WSLOGIN.xsd_1.xsd"/>
 </catalog>

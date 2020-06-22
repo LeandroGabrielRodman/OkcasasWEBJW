@@ -7,18 +7,16 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <meta name="Description" content="Enter your description here"/>
 
-        <title>Seguimiento de Inspeccion</title>
-    </head>
-    <body>
-        <%@include file="index.jsp" %>
+<link href="CSS/Style.css" rel="stylesheet" type="text/css"/>
+<link href="CSS/StyleSeguimientoInspeccion.css" rel="stylesheet" type="text/css"/>
 
+<title>Seguimiento de Inspeccion</title>
+</head>
+<body>
+    <%@include file="index.jsp" %>
+
+    <div class="containerbg">
 
 
         <div class="container containerazul mt-5 pb-5 ">
@@ -54,17 +52,17 @@
         </div>
 
 
+    </div>
 
 
 
-    </body>
+</body>
 
-    <footer class="footer text-center">
-        <div class="container-footer">
-            <p>
-                2020 @OKCASAS.COM Todos los derechos reservados
-            </p>
-        </div>
-    </footer>
+<footer class= "footer">
+    <div class= "container">
+        <p>Pagina diseñada por Grupo 4</p>
+    </div>
+</footer>
+
 
 </html>

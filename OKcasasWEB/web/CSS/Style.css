@@ -112,3 +112,29 @@ body
 {
     width: 100%;
 }
+
+/* contenedores adicionales */
+.contenedor-formulario
+{
+    border-radius: 7%;
+    background: rgba(22, 144, 182, 0.77);
+}
+
+.containerazul
+{
+    border-radius: 5%;
+    background-color: rgba(28, 180, 226, 0.77);   
+    ;
+}
+
+.containerblanco
+{
+    border-radius: 0%;
+    background-color: rgba(232, 244, 247, 0.77);
+}
+
+#foto1
+{
+    border-radius: 5%;
+}
+
