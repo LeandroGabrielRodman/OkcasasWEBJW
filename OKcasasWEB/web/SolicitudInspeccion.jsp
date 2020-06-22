@@ -21,18 +21,37 @@
             
         <div class="container">
             <div class="row">
+                <div class="col-2"></div>
                 
-                <div class="col-1"></div>
-                <!Contenedor formulario >
-                <div class="col-10 SolicitudI ">
-               <!Direccion,tipo_servicio,fecha_hora,celular,correo,cliente_rut>
-               <form action="servletSolicitud" method="POST">
-                   
-               </form>
+                <div class="col-8 SolicitudI">
+                    <form action="sevletSolicitud" method="POST">
+                        <tr>
+                            <td class="TitulosTD">RUT Cliente <input type="text" name="txtRut" class="form-control" required></td>
+                        </tr>
+                         <tr>
+                            <td>Direccion <input type="text" name="txtRut" class="form-control" required></td>
+                        </tr>
+                          <tr>
+                            <td>Codigo de Inspección <input type="text" name="txtCodigo" class="form-control" readonly></td>
+                        </tr>
+                          <tr>
+                            <td>Tipo de servicio <input type="text" name="txtservicio" class="form-control" required></td>
+                        </tr>
+                          <tr>
+                            <td>Fecha & Hora<input type="datetime" name="txtfechahora" class="form-control" required></td>
+                        </tr>
+                          <tr>
+                            <td> Correo Electronico <input type="email" name="txtemail" class="form-control" required></td>
+                        </tr>
+                        <tr>
+                            <td> Celular <input type="number" name="txtcelular" class="form-control" required></td>
+                        </tr>
+                         
+                    </form>
+                </div>
                 
-                <div class="col-1"></div>
-            </div>
-            
+                
+                <div class="col-2"></div>
         </div>
         
     </body>
