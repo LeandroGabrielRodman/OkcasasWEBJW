@@ -10,10 +10,9 @@ import java.sql.DriverManager;
 
 /**
  *
- * @author lanxi
+ * @author Claudio
  */
 public class Conexion {
-
     private static Connection conexion;
 
     private String usuario = "ADMIN";
@@ -34,4 +33,5 @@ public class Conexion {
     public Connection obtenerconexion() {
         return conexion;
     }
+    
 }

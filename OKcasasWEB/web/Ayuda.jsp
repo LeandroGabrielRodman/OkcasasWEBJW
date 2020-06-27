@@ -13,7 +13,48 @@
     </head>
     <body>
         <%@include file="index.jsp" %>
-        <h1>Hello World!</h1>
+        <div class="jumbotron text-center">
+            <h1>Enviar Correo</h1>
+            <div class="Container">
+                <div class="row">
+
+                    <div class="col-3"></div>
+                    <div class="col-6">
+                        <form action="servletCorreo" method="POST">
+                            <table class="table">
+                                <tr>
+                                    <td>Destinatario</td>
+                                    <td><input type="email" name="txtDestinatario" class="form-control" required></td>
+                                </tr>
+                                <tr>
+                                    <td>Asunto</td>
+                                    <td><input type="text" name="txtAsunto" class="form-control" required></td>
+                                </tr>
+                                <tr>
+                                    <td>Destinatario</td>
+                                    <td><textarea  name="txtMensaje" rows="5" class="form-control" required></textarea></td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td><input  type="submit" name="btnEnviar" class="btn btn-primary" ></td>
+                                </tr>
+                            </table>
+                        </form>
+
+                        <c:if test="${msj!=null}">
+                            <div class="alert alert-warning">${msj}</div>
+                        </c:if>
+                    </div>
+
+
+
+                    <div class="col-3"></div>
+
+                </div>
+            </div>
+
+        </div>
+
     </body>
     <footer class="footer text-center">
         <div class="container-footer">

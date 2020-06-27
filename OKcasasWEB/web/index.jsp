@@ -37,8 +37,7 @@
                             <li class="nav-item"><a href="SolicitudInspeccion.jsp" class="nav-link">Solicitar inspección</a></li>
                             <li class="nav-item"><a href="HistorialInspeccion.jsp" class="nav-link">Historial de inspecciones</a></li>
                             <li class="nav-item"><a href="SeguimientoInspeccion.jsp" class="nav-link">Seguimiento de proceso de inspección</a></li>
-                            <li class="nav-item"><a href="Reporte.jsp" class="nav-link">Generar Reporte de Inspección</a></li>
-                            <li class="nav-item"><a href="InspeccionesSolicitadas.jsp" class="nav-link">Calendario de inspecciones solicitadas</a></li>
+                                                        <li class="nav-item"><a href="InspeccionesSolicitadas.jsp" class="nav-link">Calendario de inspecciones solicitadas</a></li>
                             <li class="nav-item"><a href="Ayuda.jsp" class="nav-link">Ayuda</a></li>
                             </c:if>
                             <c:if test="${tipo=='C'}">
@@ -50,7 +49,6 @@
                             </c:if>
                             <c:if test="${tipo=='T'}">
                             <!OPCIONES DEL TECNICO>
-                            <li class="nav-item"><a href="Reporte.jsp" class="nav-link">Generar Reporte de Inspección</a></li>
                             <li class="nav-item"><a href="InspeccionesSolicitadas.jsp" class="nav-link">Calendario de inspecciones solicitadas</a></li>
                             <li class="nav-item"><a href="Ayuda.jsp" class="nav-link">Ayuda</a></li>
                             </c:if>

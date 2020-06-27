@@ -28,8 +28,8 @@
     </target>
     <target name="wsimport-client-WSLOGIN" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/WSLOGIN"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/WSLOGIN" destdir="${build.generated.dir}/jax-wsCache/WSLOGIN" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/WSLOGIN/wsdl/localhost_14605/WS_LOGIN/WSLOGIN.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:14605/WS_LOGIN/WSLOGIN?WSDL" xnocompile="true" xendorsed="true">
-            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/WSLOGIN/wsdl/localhost_14605/WS_LOGIN/WSLOGIN.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/WSLOGIN" destdir="${build.generated.dir}/jax-wsCache/WSLOGIN" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/WSLOGIN/wsdl/localhost_39554/WS_LOGIN/WSLOGIN.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:39554/WS_LOGIN/WSLOGIN?WSDL" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/WSLOGIN/wsdl/localhost_39554/WS_LOGIN/WSLOGIN.wsdl"/>
             <produces dir="${build.generated.dir}/jax-wsCache/WSLOGIN"/>
         </wsimport>
         <copy todir="${build.generated.sources.dir}/jax-ws">
@@ -42,5 +42,21 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/ws"/>
         <delete dir="${build.generated.dir}/jax-wsCache/WSLOGIN"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-WSLOGIN"/>
+    <target name="wsimport-client-WS_Pago" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/WS_Pago"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/WS_Pago" destdir="${build.generated.dir}/jax-wsCache/WS_Pago" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/WS_Pago/wsdl/localhost_39554/WS_PAGO/WS_Pago.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:39554/WS_PAGO/WS_Pago?WSDL" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/WS_Pago/wsdl/localhost_39554/WS_PAGO/WS_Pago.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/WS_Pago"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/WS_Pago">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-WS_Pago" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/ws"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/WS_Pago"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-WSLOGIN, wsimport-client-WS_Pago"/>
 </project>

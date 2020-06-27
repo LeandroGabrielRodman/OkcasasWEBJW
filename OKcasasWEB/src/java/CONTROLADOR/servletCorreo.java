@@ -7,23 +7,26 @@ package CONTROLADOR;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Properties;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import ws.WSLOGIN;
-import ws.WSLOGIN_Service;
-
-
 
 /**
  *
- * @author lanxi
+ * @author Gemin
  */
-@WebServlet(name = "servletLogin", urlPatterns = {"/servletLogin"})
-public class servletLogin extends HttpServlet {
+@WebServlet(name = "servletCorreo", urlPatterns = {"/servletCorreo"})
+public class servletCorreo extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -42,10 +45,10 @@ public class servletLogin extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet servletLogin</title>");
+            out.println("<title>Servlet servletCorreo</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet servletLogin at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet servletCorreo at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -63,10 +66,7 @@ public class servletLogin extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession  sesion = request.getSession();
-        //DESTRUIR SESIONES (CERRARLAS)
-        sesion.invalidate();
-        response.sendRedirect("Inicio.jsp");
+        processRequest(request, response);
     }
 
     /**
@@ -80,30 +80,52 @@ public class servletLogin extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //SESION
-         HttpSession sesion = request.getSession(true);
-           
-        //capturamos las credenciales 
-        String user = request.getParameter("txtUsuario");
-        String pass = request.getParameter("txtContrasena");
-        //creamos el cliente del WS
-        WSLOGIN_Service servicio = new WSLOGIN_Service();
-        WSLOGIN cliente = servicio.getWSLOGINPort();
-        
-        //validamos el ws 
-        
-        char tipo = (char) cliente.login(user, pass);
-        
-        if (tipo=='T' || tipo=='A' || tipo=='C')
-        {
-            sesion.setAttribute("tipo", tipo);
-            sesion.setAttribute("username", user);
-            request.getRequestDispatcher("Inicio.jsp").forward(request, response);
-        }
-        else
-        {
-            request.setAttribute("err", "Credenciales incorrectas owo");
-            request.getRequestDispatcher("Login.jsp").forward(request, response);
+        //Capturar los datos del correo
+        String To = request.getParameter("txtDestinatario");
+        String Subject = request.getParameter("txtAsunto");
+        String Mensage = request.getParameter("txtMensaje");
+
+        try {
+            /*Credenciales -> 
+            Deben tener habilitado que su correo GMAIL permita acceder
+            desde aplicaciones desconocidas. Modificar desde:
+            https://myaccount.google.com/lesssecureapps */
+            String mail = "okcasasemp@gmail.com";
+            String password = "okcasas123";
+            
+
+            Properties props = new Properties();
+            props.put("mail.smtp.auth", "true");
+            props.put("mail.smtp.starttls.enable", "true");
+            props.put("mail.smtp.host", "smtp.gmail.com");
+            props.put("mail.smtp.port", "587");
+
+            Session session = Session.getInstance(props,
+                    new javax.mail.Authenticator() {
+                protected PasswordAuthentication getPasswordAuthentication() {
+                    return new PasswordAuthentication(mail, password);
+                }
+            });
+
+            try {
+
+                Message message = new MimeMessage(session);
+                message.setFrom(new InternetAddress(mail));
+                message.setRecipients(Message.RecipientType.TO,
+                        InternetAddress.parse(To));
+                message.setSubject(Subject);
+                message.setText(Mensage);
+
+                Transport.send(message);
+
+            } catch (MessagingException e) {
+                throw new RuntimeException(e);
+            }
+            request.setAttribute("msj", "Correo Enviado");
+            request.getRequestDispatcher("Ayuda.jsp").forward(request, response);
+        } catch (Exception e) {
+            request.setAttribute("msj", "Correo no enviado " + e.getMessage());
+            request.getRequestDispatcher("Ayuda.jsp").forward(request, response);
         }
     }
 

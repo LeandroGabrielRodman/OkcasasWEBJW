@@ -89,9 +89,16 @@ body
 
 .SolicitudI
 {
- margin-top: 20px;
- margin-bottom: 20px;
- background: #3498DB ;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background: rgba(84,192,242,.9) ;
+    border-radius: 5px;
+}
+.titulos
+{
+    text-decoration: underline;
+    margin-top: 20px;
+    margin-bottom:20px;
 }
 .form-control
 {
@@ -100,7 +107,7 @@ body
 }
 .footer
 {
-    
+
     color: white;
     background: #424242;
     font-family: 'Lato', sans-serif;
@@ -112,6 +119,13 @@ body
 {
     width: 100%;
 }
+
+.btnEnviarSo
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 
 /* contenedores adicionales */
 .contenedor-formulario
@@ -138,3 +152,9 @@ body
     border-radius: 5%;
 }
 
+.Piedepagina
+{
+    background: #424242;
+    width: 100%;
+    height: 100%;
+}

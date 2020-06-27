@@ -1,29 +1,26 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package CONTROLADOR;
 
+import Clases.SolicitudInspeccion;
+import DAO.SolicitudDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import ws.WSLOGIN;
-import ws.WSLOGIN_Service;
-
-
+import ws.WSPago;
+import ws.WSPago_Service;
 
 /**
  *
  * @author lanxi
  */
-@WebServlet(name = "servletLogin", urlPatterns = {"/servletLogin"})
-public class servletLogin extends HttpServlet {
+@WebServlet(name = "servletSolicitud", urlPatterns = {"/servletSolicitud"})
+public class servletSolicitud extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -42,10 +39,10 @@ public class servletLogin extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet servletLogin</title>");
+            out.println("<title>Servlet servletSolicitud</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet servletLogin at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet servletSolicitud at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -63,10 +60,7 @@ public class servletLogin extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        HttpSession  sesion = request.getSession();
-        //DESTRUIR SESIONES (CERRARLAS)
-        sesion.invalidate();
-        response.sendRedirect("Inicio.jsp");
+        processRequest(request, response);
     }
 
     /**
@@ -80,31 +74,51 @@ public class servletLogin extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //SESION
-         HttpSession sesion = request.getSession(true);
-           
-        //capturamos las credenciales 
-        String user = request.getParameter("txtUsuario");
-        String pass = request.getParameter("txtContrasena");
-        //creamos el cliente del WS
-        WSLOGIN_Service servicio = new WSLOGIN_Service();
-        WSLOGIN cliente = servicio.getWSLOGINPort();
         
-        //validamos el ws 
+          //SESION
         
-        char tipo = (char) cliente.login(user, pass);
-        
-        if (tipo=='T' || tipo=='A' || tipo=='C')
-        {
-            sesion.setAttribute("tipo", tipo);
-            sesion.setAttribute("username", user);
-            request.getRequestDispatcher("Inicio.jsp").forward(request, response);
+
+        //REALIZAMOS LA INTEGRACION :)
+        WSPago_Service servicio = new WSPago_Service();
+        WSPago Pago = servicio.getWSPagoPort();
+        //Capturar Variables 
+        String Direccion = request.getParameter("txtDireccion");
+        String TipoServicio = request.getParameter("txtServicio");
+        String fechahora = request.getParameter("txtfechahora");
+        int celular = Integer.parseInt(request.getParameter("txtCelular"));
+        String email = request.getParameter("txtemail");
+        int Rut = Integer.parseInt(request.getParameter("txtRut"));
+        int monto = Integer.parseInt(request.getParameter("txtmonto"));
+
+
+        //Solicitud y dao
+        SolicitudInspeccion SO = new SolicitudInspeccion(Direccion, TipoServicio, fechahora, celular, email, Rut, monto);
+        SolicitudDAO dao = new SolicitudDAO();
+
+        try {
+
+            if (Pago.obtenerPrecio(monto)>=0) {
+                
+                //GUARDAR SOLICITUD
+                if (dao.SolicitudInspeccion(SO)) {
+                    request.setAttribute("msj", "Solicitud Enviada!");
+                    request.getRequestDispatcher("SolicitudInspeccion.jsp").forward(request, response);
+                } 
+                else 
+                {
+                    request.setAttribute("err", "Error al enviar la solicitud");
+                    request.getRequestDispatcher("SolicitudInspeccion.jsp").forward(request, response);
+                }
+            } else {
+                    request.setAttribute("errp", "Monto insuficiente");
+                    request.getRequestDispatcher("SolicitudInspeccion.jsp").forward(request, response);
+            }
+
+        } catch (SQLException ex) {
+            request.setAttribute("msj", "Error al enviar la solicitud" + ex.getMessage());
+            request.getRequestDispatcher("SolicitudInspeccion.jsp").forward(request, response);
         }
-        else
-        {
-            request.setAttribute("err", "Credenciales incorrectas owo");
-            request.getRequestDispatcher("Login.jsp").forward(request, response);
-        }
+
     }
 
     /**
