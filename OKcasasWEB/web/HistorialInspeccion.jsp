@@ -5,15 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<meta name="Description" content="Enter your description here"/>
-
+<link href="CSS/Style.css" rel="stylesheet" type="text/css"/>
+<link href="CSS/StyleHistorialInspeccion.css" rel="stylesheet" type="text/css"/>
 
 <title>Historial inspeccion
 </title>
@@ -21,66 +14,71 @@
 
 <body
     <%@include file="index.jsp" %>
-    
+
     <main class="main">
 
-        <div class="container containerazul mt-3 mb-3 pt-3 pb-3">
+        <div class="containerbg">
 
-            <h1 class="text-center">Historial de Inspecciones</h1>
+            <div class="container containerazul mt-3 mb-3 pt-3 pb-3">
 
-            <div class="container text-center">
-                <img id="foto1" src="https://www.condominioalcazar.cl/wp-content/uploads/2019/05/BannerCasas-Interior.png" alt="">
-            </div>
-        
-            <div class="container containerblanco mt-3 pt-3 pb-3">
+                <h1 class="text-center">Historial de Inspecciones</h1>
 
-                <div class="row text-center">
+                <div class="container text-center">
+                    <img id="foto1" src="https://www.condominioalcazar.cl/wp-content/uploads/2019/05/BannerCasas-Interior.png" alt="">
+                </div>
 
-                    <div class="container col-3">
+                <form class="container" action="servletListar" method="POST">
 
-                        <h3>ID</h3>
-                        <hr>
-                        <p>1</p>
-                        <p>2</p>
-                        <p>3</p>
-                        <p>4</p>
-                        <p>5</p>
-
+                    <div class="row">
+                        <div class="col mt-3 ml-3">
+                            <input type="number" class="form-control" placeholder="Ingrese RUT" name="txtRut" required>
+                        </div>
+                        
+                        <div class="col">
+                            <button type="submit" class="btn btn-primary mt-3 mb-5">Buscar Inspección</button>
+                        </div>
                     </div>
 
-                    <div class="container col-3">
 
-                        <h3>Inmueble</h3>
-                        <hr>
-                        <p>Departamento</p>
-                        <p>Casa</p>
-                        <p>Departamento</p>
-                        <p>Casa</p>
-                        <p>Casa</p>
 
-                    </div>
+                </form>
 
-                    <div class="container col-3">
+                <div class="container containerblanco mt-3 pt-3 pb-3">
 
-                        <h3>Dirección</h3>
-                        <hr>
-                        <p>Av. Los Toros</p>
-                        <p>Av. Concha y toro</p>
-                        <p>Av. Los Manantiales</p>
-                        <p>Av. La Florida</p>
-                        <p>Av. Gabriela</p>
+                    <div class="row text-center">
 
-                    </div>
+                        <div class="container">
 
-                    <div class="container col-3">
+                            <table class="table table-striped">
+                                <tr>
+                                    <td>Dirección</td>
+                                    <td>Tipo de Servicio</td>
+                                    <td>Fecha</td>
+                                    <td>Celular</td>
+                                    <td>Correo</td>
+                                    <td>Rut</td>
+                                    <td>Etapa</td>
+                                    <td>Código de Inspección</td>
+                                    <td>Monto</td>
+                                </tr>
+                                <c:forEach var="inspeccion" items="${listado}">
+                                    <tr>
+                                        <td>${inspeccion.getDireccion()}</td>
+                                        <td>${inspeccion.getTipo_servicio()}</td>
+                                        <td>${inspeccion.getFecha()}</td>
+                                        <td>${inspeccion.getCelular()}</td>
+                                        <td>${inspeccion.getCorreo()}</td>
+                                        <td>${inspeccion.getRut()}</td>
+                                        <td>${inspeccion.getEtapa()}</td>
+                                        <td>${inspeccion.getCodigo_inspeccion()}</td>
+                                        <td>${inspeccion.getMonto()}</td>
+                                    </tr>
+                                </c:forEach>
 
-                        <h3>Fecha</h3>
-                        <hr>
-                        <p>20/05/2018</p>
-                        <p>15/03/2019</p>
-                        <p>04/11/2017</p>
-                        <p>10/02/2019</p>
-                        <p>26/09/2017</p>
+
+                            </table>
+
+                        </div>
 
                     </div>
 
@@ -88,22 +86,16 @@
                 </div>
 
 
+
             </div>
-
-
 
         </div>
 
 
-
-
-
-
-
     </main>
 
-    
-      <footer class="footer text-center">
+
+    <footer class="footer text-center">
         <div class="container-footer">
             <p>
                 2020 @OKCASAS.COM Todos los derechos reservados

@@ -1,26 +1,30 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package CONTROLADOR;
 
-import Clases.SolicitudInspeccion;
-import DAO.SolicitudDAO;
+import Clases.Inspeccion;
+import Clases.Usuario;
+import DAO.InspeccionDAO;
+import DAO.UsuarioDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import ws.WSPago;
-import ws.WSPago_Service;
+import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author lanxi
+ * @author Claudio
  */
-@WebServlet(name = "servletSolicitud", urlPatterns = {"/servletSolicitud"})
-public class servletSolicitud extends HttpServlet {
+@WebServlet(name = "servletListar", urlPatterns = {"/servletListar"})
+public class servletListar extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,10 +43,10 @@ public class servletSolicitud extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet servletSolicitud</title>");
+            out.println("<title>Servlet servletListar</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet servletSolicitud at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet servletListar at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -60,7 +64,7 @@ public class servletSolicitud extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
     }
 
     /**
@@ -75,50 +79,18 @@ public class servletSolicitud extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-          //SESION
-          
-
-        //REALIZAMOS LA INTEGRACION :)
-        WSPago_Service servicio = new WSPago_Service();
-        WSPago Pago = servicio.getWSPagoPort();
-        //Capturar Variables 
-        String Direccion = request.getParameter("txtDireccion");
-        String TipoServicio = request.getParameter("txtServicio");
-        String fechahora = request.getParameter("txtfechahora");
-        int celular = Integer.parseInt(request.getParameter("txtCelular"));
-        String email = request.getParameter("txtemail");
-        int Rut = Integer.parseInt(request.getParameter("txtRut"));
-        int monto = Integer.parseInt(request.getParameter("txtmonto"));
-
-
-        //Solicitud y dao
-        SolicitudInspeccion SO = new SolicitudInspeccion(Direccion, TipoServicio, fechahora, celular, email, Rut, monto);
-        SolicitudDAO dao = new SolicitudDAO();
-
         try {
 
-            if (Pago.obtenerPrecio(monto)>=0) {
-                
-                //GUARDAR SOLICITUD
-                if (dao.SolicitudInspeccion(SO)) {
-                    request.setAttribute("msj", "Solicitud Enviada!");
-                    request.getRequestDispatcher("SolicitudInspeccion.jsp").forward(request, response);
-                } 
-                else 
-                {
-                    request.setAttribute("err", "Error al enviar la solicitud");
-                    request.getRequestDispatcher("SolicitudInspeccion.jsp").forward(request, response);
-                }
-            } else {
-                    request.setAttribute("errp", "Monto insuficiente");
-                    request.getRequestDispatcher("SolicitudInspeccion.jsp").forward(request, response);
-            }
+            int rut = Integer.parseInt(request.getParameter("txtRut"));
 
-        } catch (SQLException ex) {
-            request.setAttribute("msj", "Error al enviar la solicitud" + ex.getMessage());
-            request.getRequestDispatcher("SolicitudInspeccion.jsp").forward(request, response);
+            List<Inspeccion> listado = new InspeccionDAO().listarInspecciones(rut);
+            request.setAttribute("listado", listado);
+            request.getRequestDispatcher("HistorialInspeccion.jsp").forward(request, response);
+
+        } catch (Exception e) {
+            request.getRequestDispatcher("HistorialInspeccion.jsp").forward(request, response);
         }
-
+        
     }
 
     /**
