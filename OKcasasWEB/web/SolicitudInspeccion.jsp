@@ -46,26 +46,29 @@
                         <tr>
                         <img src="IMG/calendar.png"  class="iconsR" width="25px"/>
                         <label for="fechahora">Fecha & Hora</label>
-                        <td><input type="datetime" name="txtfechahora" placeholder="MM/DD/AAAA HH:MM" class="form-control" required></td>
+                        <td><input type="datetime" name="txtFechahora" placeholder="MM/DD/AAAA HH:MM" class="form-control" required></td>
                         </tr>
                         <tr>
                         <img src="IMG/mail.png"  class="iconsR" width="25px"/>
                         <label for="email">Correo Electronico</label>
-                        <td><input type="email" name="txtemail" placeholder="Example@example.com"class="form-control" required></td>
+                        <td><input type="email" name="txtEmail" placeholder="Example@example.com"class="form-control" required></td>
                         </tr>
                         <tr>
                         <img src="IMG/phone.png"  class="iconsR" width="25px"/>
                         <label for="celular">Celular</label>
-                        <td> <input type="number" name="txtcelular" placeholder="123456789" class="form-control" required></td>
+                        <td> <input type="number" name="txtCelular" placeholder="123456789" class="form-control" required></td>
                         </tr>
                         <tr>
                             <td>
                                 <img src="IMG/wrench.png"  class="iconsR" width="25px"/>
                                 <label for="Servicio">Pago de Servicio</label> 
                                 <label > TOTAL A PAGAR : 93.780‬</label>
-                                <input type="number" name="txtmonto" placeholder="Ingrese Monto" class="form-control" required>
-                         
-                        </td>
+                                <input type="number" name="txtMonto" placeholder="Ingrese Monto" class="form-control" required>
+
+                                <c:if test="${errp!=null}">
+                                    <div class="alert alert-danger mt-3 text-center">${errp}</div>
+                                </c:if>
+                            </td>
                         </tr>
 
                         <div>

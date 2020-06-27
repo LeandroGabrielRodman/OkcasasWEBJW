@@ -84,12 +84,13 @@ public class servletSolicitud extends HttpServlet {
         //Capturar Variables 
         String Direccion = request.getParameter("txtDireccion");
         String TipoServicio = request.getParameter("txtServicio");
-        String fechahora = request.getParameter("txtfechahora");
+        String fechahora = request.getParameter("txtFechahora");
         int celular = Integer.parseInt(request.getParameter("txtCelular"));
-        String email = request.getParameter("txtemail");
+        String email = request.getParameter("txtEmail");
         int Rut = Integer.parseInt(request.getParameter("txtRut"));
-        int monto = Integer.parseInt(request.getParameter("txtmonto"));
+        int monto = Integer.parseInt(request.getParameter("txtMonto"));
 
+        int total = Pago.obtenerPrecio(monto);
 
         //Solicitud y dao
         SolicitudInspeccion SO = new SolicitudInspeccion(Direccion, TipoServicio, fechahora, celular, email, Rut, monto);
@@ -97,7 +98,7 @@ public class servletSolicitud extends HttpServlet {
 
         try {
 
-            if (Pago.obtenerPrecio(monto)>=0) {
+            if (total>=0) {
                 
                 //GUARDAR SOLICITUD
                 if (dao.SolicitudInspeccion(SO)) {
@@ -106,7 +107,7 @@ public class servletSolicitud extends HttpServlet {
                 } 
                 else 
                 {
-                    request.setAttribute("err", "Error al enviar la solicitud");
+                    request.setAttribute("err", "Error al enviar la solicitud no guarda");
                     request.getRequestDispatcher("SolicitudInspeccion.jsp").forward(request, response);
                 }
             } else {
@@ -115,7 +116,7 @@ public class servletSolicitud extends HttpServlet {
             }
 
         } catch (SQLException ex) {
-            request.setAttribute("msj", "Error al enviar la solicitud" + ex.getMessage());
+            request.setAttribute("msj", "Error al enviar la solicitud a la Base de datos" + ex.getMessage());
             request.getRequestDispatcher("SolicitudInspeccion.jsp").forward(request, response);
         }
 
