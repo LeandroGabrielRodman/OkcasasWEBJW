@@ -23,8 +23,8 @@ public class TestSolicitud {
         try {
             //AGREGAR SOLICITUD
             
-           SolicitudInspeccion SO = new SolicitudInspeccion("LLALAL", "asdas", "21/12/23 1:30", 123995677, "sadasdas", 21441520,12324532);
-            if(dao.SolicitudInspeccion(SO))
+           SolicitudInspeccion SO = new SolicitudInspeccion("los uwu uwu", "Todos los servicios", "14/04/2000", 12345678, "uwu@uwu.com", 20469886, 100000);
+            if(dao.SolicitudInspeccion(SO)==true)
             {
                 System.out.println("SOLICITUD GUARDADA ");
             }

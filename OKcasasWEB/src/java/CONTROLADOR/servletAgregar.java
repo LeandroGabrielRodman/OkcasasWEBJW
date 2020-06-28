@@ -110,6 +110,7 @@ public class servletAgregar extends HttpServlet {
                 request.setAttribute("err", "Ocurrió un error al registrarte");
                 request.getRequestDispatcher("RegistrarUsuario.jsp").forward(request, response);
             }
+            
         } catch (SQLException ex) {
             request.setAttribute("err", "Ocurrió un error al registrarte "+ex.getMessage());
                 request.getRequestDispatcher("RegistrarUsuario.jsp").forward(request, response);

@@ -5,8 +5,6 @@ import DAO.SolicitudDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -74,45 +72,44 @@ public class servletSolicitud extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-          //SESION
-          
-
-        //REALIZAMOS LA INTEGRACION :)
-        WSPago_Service servicio = new WSPago_Service();
-        WSPago Pago = servicio.getWSPagoPort();
-        //Capturar Variables 
-        String Direccion = request.getParameter("txtDireccion");
-        String TipoServicio = request.getParameter("txtServicio");
-        String fechahora = request.getParameter("txtFechahora");
-        int celular = Integer.parseInt(request.getParameter("txtCelular"));
-        String email = request.getParameter("txtEmail");
-        int Rut = Integer.parseInt(request.getParameter("txtRut"));
-        int monto = Integer.parseInt(request.getParameter("txtMonto"));
-
-        int total = Pago.obtenerPrecio(monto);
-
-        //Solicitud y dao
-        SolicitudInspeccion SO = new SolicitudInspeccion(Direccion, TipoServicio, fechahora, celular, email, Rut, monto);
-        SolicitudDAO dao = new SolicitudDAO();
 
         try {
+            //SESION
+            //REALIZAMOS LA INTEGRACION :)
+            WSPago_Service servicio = new WSPago_Service();
+            WSPago Pago = servicio.getWSPagoPort();
+            //Capturar Variables
+            int Rut = Integer.parseInt(request.getParameter("txtRut"));
+            String Direccion = request.getParameter("txtDireccion");
+            
+            //CHUPAME LOS COCOS FECHA CULIÁ igual funca pero raro
+            String fechahora = request.getParameter("txtFechahora");
+            
+            String email = request.getParameter("txtEmail");
+            int celular = Integer.parseInt(request.getParameter("txtCelular"));
+            
+            int monto = Integer.parseInt(request.getParameter("txtMonto"));
+            
+            String TipoServicio = "Todos los Servicios";
+            int total = Pago.obtenerPrecio(monto);
 
-            if (total>=0) {
+            //Solicitud y dao
+            SolicitudInspeccion Solicitud = new SolicitudInspeccion(Direccion, TipoServicio, fechahora, celular, email, Rut, monto);
+            SolicitudDAO dao = new SolicitudDAO();
+
+            if (total >= 0) {
                 
                 //GUARDAR SOLICITUD
-                if (dao.SolicitudInspeccion(SO)) {
+                if (dao.SolicitudInspeccion(Solicitud)==true) {
                     request.setAttribute("msj", "Solicitud Enviada!");
                     request.getRequestDispatcher("SolicitudInspeccion.jsp").forward(request, response);
-                } 
-                else 
-                {
-                    request.setAttribute("err", "Error al enviar la solicitud no guarda");
+                } else {
+                    request.setAttribute("err", "Error al enviar la solicitud no guarda, pero hace avanzar la secuencia");
                     request.getRequestDispatcher("SolicitudInspeccion.jsp").forward(request, response);
                 }
             } else {
-                    request.setAttribute("errp", "Monto insuficiente");
-                    request.getRequestDispatcher("SolicitudInspeccion.jsp").forward(request, response);
+                request.setAttribute("errp", "Monto insuficiente");
+                request.getRequestDispatcher("SolicitudInspeccion.jsp").forward(request, response);
             }
 
         } catch (SQLException ex) {

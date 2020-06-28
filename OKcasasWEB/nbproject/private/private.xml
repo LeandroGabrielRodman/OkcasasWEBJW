@@ -3,9 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/lanxi/Documents/GitHub/OkcasasWEBJW/OKcasasWEB/src/java/CONTROLADOR/servletSolicitud.java</file>
-            <file>file:/C:/Users/lanxi/Documents/GitHub/OkcasasWEBJW/OKcasasWEB/web/SolicitudInspeccion.jsp</file>
-            <file>file:/C:/Users/lanxi/Documents/GitHub/OkcasasWEBJW/OKcasasWEB/src/java/DAO/SolicitudDAO.java</file>
+            <file>file:/C:/Users/Claudio/Documents/GitHub/OkcasasWEBJW/OKcasasWEB/src/java/TEST/TestSolicitud.java</file>
+            <file>file:/C:/Users/Claudio/Documents/GitHub/OkcasasWEBJW/OKcasasWEB/web/SolicitudInspeccion.jsp</file>
+            <file>file:/C:/Users/Claudio/Documents/GitHub/OkcasasWEBJW/OKcasasWEB/src/java/CONTROLADOR/servletAgregar.java</file>
+            <file>file:/C:/Users/Claudio/Documents/GitHub/OkcasasWEBJW/OKcasasWEB/src/java/DAO/SolicitudDAO.java</file>
+            <file>file:/C:/Users/Claudio/Documents/GitHub/OkcasasWEBJW/OKcasasWEB/src/java/CONTROLADOR/servletSolicitud.java</file>
+            <file>file:/C:/Users/Claudio/Documents/GitHub/OkcasasWEBJW/OKcasasWEB/src/java/Clases/SolicitudInspeccion.java</file>
         </group>
     </open-files>
 </project-private>

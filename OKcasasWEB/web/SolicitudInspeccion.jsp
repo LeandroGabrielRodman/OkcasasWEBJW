@@ -26,50 +26,44 @@
 
                     <c:if test="${msj!=null}">
                         <div class="alert alert-success">${msj}</div>
+                        <div class="alert alert-success">Tu código de inspección es: ${username}</div>
                     </c:if>
                     <c:if test="${err!=null}">
                         <div class="alert alert-danger">${err}</div>
-                    </c:if>  
-                    <form action="servletSolicitud" method="POST">
-                        <div class="titulos">
-                            <span class="title">Complete su solicitud</span>    
-                        </div>
-                        <tr>
-                        <label for="">RUT Cliente</label>
-                        <td > <input type="text" name="txtRut" placeholder="1234567892" class="form-control" required></td>
-                        </tr>
-                        <tr>
+                    </c:if>
+
+                    <c:if test="${errp!=null}">
+                        <div class="alert alert-danger mt-3 text-center">${errp}</div>
+                    </c:if>
+
+                    <div class="titulos">
+                        <span class="title">Complete su solicitud</span>    
+                    </div>
+                    <form action="servletSolicitud" class="needs-validation" method="POST">    
+
+                        <label for="Rut">RUT Cliente ${username}</label>
+                        <input type="text" name="txtRut" placeholder="1234567892" class="form-control" required>
+
                         <img src="IMG/pin.png"  class="iconsR" width="25px"/>
                         <label for="Direccion">Dirección</label>
-                        <td> <input type="text" name="txtDireccion" placeholder="AV Siempre Viva #0251" class="form-control" required></td>
-                        </tr>                   
-                        <tr>
-                        <img src="IMG/calendar.png"  class="iconsR" width="25px"/>
-                        <label for="fechahora">Fecha & Hora</label>
-                        <td><input type="datetime" name="txtFechahora" placeholder="MM/DD/AAAA HH:MM" class="form-control" required></td>
-                        </tr>
-                        <tr>
-                        <img src="IMG/mail.png"  class="iconsR" width="25px"/>
-                        <label for="email">Correo Electronico</label>
-                        <td><input type="email" name="txtEmail" placeholder="Example@example.com"class="form-control" required></td>
-                        </tr>
-                        <tr>
-                        <img src="IMG/phone.png"  class="iconsR" width="25px"/>
-                        <label for="celular">Celular</label>
-                        <td> <input type="number" name="txtCelular" placeholder="123456789" class="form-control" required></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <img src="IMG/wrench.png"  class="iconsR" width="25px"/>
-                                <label for="Servicio">Pago de Servicio</label> 
-                                <label > TOTAL A PAGAR : 93.780‬</label>
-                                <input type="number" name="txtMonto" placeholder="Ingrese Monto" class="form-control" required>
+                        <input type="text" name="txtDireccion" placeholder="AV Siempre Viva #0251" class="form-control" required>
 
-                                <c:if test="${errp!=null}">
-                                    <div class="alert alert-danger mt-3 text-center">${errp}</div>
-                                </c:if>
-                            </td>
-                        </tr>
+                        <img src="IMG/calendar.png"  class="iconsR" width="25px"/>
+                        <label for="Fechahora">Fecha & Hora</label>
+                        <input type="text" name="txtFechahora" placeholder="MM/DD/AAAA HH:MM" class="form-control" required>
+
+                        <img src="IMG/mail.png"  class="iconsR" width="25px"/>
+                        <label for="Email">Correo Electronico</label>
+                        <input type="email" name="txtEmail" placeholder="Example@example.com"class="form-control" required>
+
+                        <img src="IMG/phone.png"  class="iconsR" width="25px"/>
+                        <label for="Celular">Celular</label>
+                        <input type="number" name="txtCelular" placeholder="123456789" class="form-control" required>
+
+                        <img src="IMG/wrench.png"  class="iconsR" width="25px"/>
+                        <label for="Servicio">Pago de Servicio</label> 
+                        <label > TOTAL A PAGAR : 93.780‬</label>
+                        <input type="number" name="txtMonto" placeholder="Ingrese Monto" class="form-control" required>
 
                         <div>
                             <input class="btn-dark btnEnviarSo" type="submit" name="btnSolicitud" value="Pagar y Enviar Solicitud">
