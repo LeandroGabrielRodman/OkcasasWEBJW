@@ -11,4 +11,6 @@
     <system systemId="http://localhost:14605/WS_LOGIN/WSLOGIN?xsd=1" uri="src/conf/xml-resources/web-service-references/WSLOGIN/wsdl/localhost_14605/WS_LOGIN/WSLOGIN.xsd_1.xsd"/>
     <system systemId="http://localhost:14605/WS_PAGO/WS_Pago?WSDL" uri="src/conf/xml-resources/web-service-references/WS_Pago/wsdl/localhost_14605/WS_PAGO/WS_Pago.wsdl"/>
     <system systemId="http://localhost:14605/WS_PAGO/WS_Pago?xsd=1" uri="src/conf/xml-resources/web-service-references/WS_Pago/wsdl/localhost_14605/WS_PAGO/WS_Pago.xsd_1.xsd"/>
+    <system systemId="http://localhost:14605/Servidor_WS/WS_Credito?WSDL" uri="src/conf/xml-resources/web-service-references/WS_Credito/wsdl/localhost_14605/Servidor_WS/WS_Credito.wsdl"/>
+    <system systemId="http://localhost:14605/Servidor_WS/WS_Credito?xsd=1" uri="src/conf/xml-resources/web-service-references/WS_Credito/wsdl/localhost_14605/Servidor_WS/WS_Credito.xsd_1.xsd"/>
 </catalog>

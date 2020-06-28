@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown. --><xs:schema xmlns:tns="http://ws/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://ws/">
+
+<xs:element name="Credito" type="tns:Credito"/>
+
+<xs:element name="CreditoResponse" type="tns:CreditoResponse"/>
+
+<xs:element name="Disponibilidad" type="tns:Disponibilidad"/>
+
+<xs:element name="DisponibilidadResponse" type="tns:DisponibilidadResponse"/>
+
+<xs:element name="SeguimientoClienteWS" type="tns:SeguimientoClienteWS"/>
+
+<xs:element name="SeguimientoClienteWSResponse" type="tns:SeguimientoClienteWSResponse"/>
+
+<xs:element name="SeguimientoWS" type="tns:SeguimientoWS"/>
+
+<xs:element name="SeguimientoWSResponse" type="tns:SeguimientoWSResponse"/>
+
+<xs:complexType name="Credito">
+<xs:sequence>
+<xs:element name="rut" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="CreditoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="SeguimientoClienteWS">
+<xs:sequence>
+<xs:element name="codigo" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="SeguimientoClienteWSResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="Disponibilidad">
+<xs:sequence>
+<xs:element name="rut" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="DisponibilidadResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="SeguimientoWS">
+<xs:sequence>
+<xs:element name="codigo" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="SeguimientoWSResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:seguimiento" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="seguimiento">
+<xs:sequence>
+<xs:element name="codigo_inspeccion" type="xs:int"/>
+<xs:element name="fase1" type="xs:int"/>
+<xs:element name="fase2" type="xs:int"/>
+<xs:element name="fase3" type="xs:int"/>
+<xs:element name="fase4" type="xs:int"/>
+<xs:element name="fase5" type="xs:int"/>
+<xs:element name="fecha" type="xs:string" minOccurs="0"/>
+<xs:element name="rut_tecnico" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

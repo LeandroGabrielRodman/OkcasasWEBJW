@@ -26,7 +26,10 @@
 
                     <c:if test="${msj!=null}">
                         <div class="alert alert-success">${msj}</div>
-                        <div class="alert alert-success">Tu código de inspección es: ${username}</div>
+                        <div class="alert alert-success">Tu código de seguimiento es: ${codigo+1}, guardalo para consultar el estado de la inspeccion</div>
+                    </c:if>
+                    <c:if test="${msjd!=null}">
+                        <div class="alert alert-success">${msjd}</div>
                     </c:if>
                     <c:if test="${err!=null}">
                         <div class="alert alert-danger">${err}</div>
@@ -62,7 +65,7 @@
 
                         <img src="IMG/wrench.png"  class="iconsR" width="25px"/>
                         <label for="Servicio">Pago de Servicio</label> 
-                        <label > TOTAL A PAGAR : 93.780‬</label>
+                        <label > TOTAL A PAGAR : 93.960‬</label>
                         <input type="number" name="txtMonto" placeholder="Ingrese Monto" class="form-control" required>
 
                         <div>

@@ -28,23 +28,105 @@
             <div class="container">
 
                 <div class="container text-center pt-2 mb-5">
+                    <form class="container" action="servletSeguimiento" method="POST">
+                        <div class="row">
+                            <div class="col mt-3 ml-3">
+                                <input type="number" class="form-control" placeholder="Ingrese Código de Seguimiento" name="txtCodigo" required>
+                            </div>
+
+                            <div class="col">
+                                <button type="submit" class="btn btn-primary mt-3 mb-5">Buscar Inspección</button>
+                            </div>
+                        </div>
+                    </form>
                     <p>A continuación, se mostrará el progreso de la inspección solicitada</p>
                 </div>
 
-                <div class="progress">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 25%">25%</div>
-                </div>
+
 
             </div>
-            <div class="container containerblanco mt-3">
+            <div class="container containerblanco mt-3 pb-3">
 
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi inventore maxime laborum, molestias odio voluptatum corrupti, eos nisi deleniti aut facere accusamus natus qui. Illo amet enim quas voluptas pariatur?</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi ipsa qui quidem molestiae neque repellendus voluptate quo? Voluptatem maxime, corrupti cumque fugit delectus ratione dolores perferendis nulla a quod doloribus.</p>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquid, eius omnis repellat ipsum iusto saepe tempora praesentium exercitationem debitis vel ad rerum quibusdam laudantium minus earum dolorum culpa error non.</p>
+                <c:if test="${etapa==1}">
 
-                <div class="container text-center">
-                    <a class="btn btn-primary btn-lg mb-2" href="#">Ver Informe</a>
-                </div>
+                    <div class="container pt-3">
+
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 20%">20%</div>
+                        </div>
+
+                    </div>
+
+                    <div class="container mt-3">
+                        <p>Su solicitud ya ha sido recibida y esta a la espera de que un miembro del equipo técnico se encargue de ella.</p>
+                    </div>
+
+                </c:if>
+
+                <c:if test="${etapa==2}">
+
+                    <div class="container pt-3">
+
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 40%">40%</div>
+                        </div>
+
+                    </div>
+
+                    <div class="container mt-3">
+                        <p>Su solicitud fué acogida por un miembro del equipo técnico. Se procederá a visitar el domicilio en el horario indicado.</p>
+                    </div>
+
+                </c:if>
+
+                <c:if test="${etapa==3}">
+
+                    <div class="container pt-3">
+
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 60%">60%</div>
+                        </div>
+
+                    </div>
+
+                    <div class="container mt-3">
+                        <p>Su inmueble actualmente está siendo inspeccionado y chequeado por miembros del equipo técnico de OKCasas.</p>
+                    </div>
+
+                </c:if>
+
+                <c:if test="${etapa==4}">
+
+                    <div class="container pt-3">
+
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 80%">80%</div>
+                        </div>
+
+                    </div>
+
+                    <div class="container mt-3">
+                        <p>El personal está realizando un detalle de las inspecciones solicitadas y pronto se le entregará un informe a la brevedad posible.</p>
+                    </div>
+
+                </c:if>
+
+                <c:if test="${etapa==5}">
+
+                    <div class="container pt-3">
+
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%">100%</div>
+                        </div>
+
+                    </div>
+
+                    <div class="container mt-3">
+                        <p>El informe fué completado de manera exitosa, se le ha enviado una copia a su correo y se han finalizado los servicios de OKCasas. Muchas gracias por preferirnos.</p>
+                    </div>
+
+                </c:if>
+
 
             </div>
 
@@ -58,10 +140,12 @@
 
 </body>
 
-<footer class= "footer">
-    <div class= "container">
-        <p>Pagina diseñada por Grupo 4</p>
-    </div>
+<footer class="footer text-center">
+
+    <p class="footerr">
+        2020 @OKCASAS.COM Todos los derechos reservados
+    </p>
+
 </footer>
 
 

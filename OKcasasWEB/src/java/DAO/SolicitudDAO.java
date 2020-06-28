@@ -9,6 +9,7 @@ import Clases.SolicitudInspeccion;
 import Conexion.Conexion;
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
@@ -49,5 +50,30 @@ public class SolicitudDAO {
 
         return centinela;
     }
+    
+    //
 
+    public int obtenerCodigo() throws SQLException {
+        int codigo =0;
+        
+        try {
+            this.conexion = new Conexion().obtenerconexion();
+            String llamada = "SELECT MAX(CODIGO_INSPECCION) FROM AGENDA_INSPECCION";
+            CallableStatement cstmt = this.conexion.prepareCall(llamada);
+            ResultSet rs = cstmt.executeQuery();
+            
+            while(rs.next()){
+                codigo = rs.getInt("MAX(CODIGO_INSPECCION)");
+            }
+            
+        } catch (Exception e) {
+            System.out.println("Error al obtener el precio" +e.getMessage());
+        } finally {
+            conexion.close();
+        }
+        
+        return codigo;
+        
+    }
+    
 }

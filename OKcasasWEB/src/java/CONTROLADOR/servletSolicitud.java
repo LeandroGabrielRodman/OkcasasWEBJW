@@ -10,8 +10,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import ws.WSPago;
 import ws.WSPago_Service;
+import ws.WSCredito;
+import ws.WSCredito_Service;
 
 /**
  *
@@ -75,21 +78,30 @@ public class servletSolicitud extends HttpServlet {
 
         try {
             //SESION
+            HttpSession sesion = request.getSession(true);
             //REALIZAMOS LA INTEGRACION :)
             WSPago_Service servicio = new WSPago_Service();
             WSPago Pago = servicio.getWSPagoPort();
+            WSCredito_Service servicio2 = new WSCredito_Service();
+            WSCredito credito = servicio2.getWSCreditoPort();
             //Capturar Variables
             int Rut = Integer.parseInt(request.getParameter("txtRut"));
             String Direccion = request.getParameter("txtDireccion");
-            
-            //CHUPAME LOS COCOS FECHA CULIÁ igual funca pero raro
+
             String fechahora = request.getParameter("txtFechahora");
-            
+
             String email = request.getParameter("txtEmail");
             int celular = Integer.parseInt(request.getParameter("txtCelular"));
-            
+
             int monto = Integer.parseInt(request.getParameter("txtMonto"));
             
+            Boolean hipotecario = credito.credito(Rut);
+            if (hipotecario == true) {
+                //14094 de descuento
+                monto = monto+14094;
+                request.setAttribute("msjd", "Por ser cliente del banco, se te ha aplicado un descuento del 15%");
+            } 
+
             String TipoServicio = "Todos los Servicios";
             int total = Pago.obtenerPrecio(monto);
 
@@ -97,14 +109,19 @@ public class servletSolicitud extends HttpServlet {
             SolicitudInspeccion Solicitud = new SolicitudInspeccion(Direccion, TipoServicio, fechahora, celular, email, Rut, monto);
             SolicitudDAO dao = new SolicitudDAO();
 
+            int codigo = dao.obtenerCodigo();
+            sesion.setAttribute("codigo", codigo);
+
+            
+
             if (total >= 0) {
-                
+
                 //GUARDAR SOLICITUD
-                if (dao.SolicitudInspeccion(Solicitud)==true) {
+                if (dao.SolicitudInspeccion(Solicitud) == true) {
                     request.setAttribute("msj", "Solicitud Enviada!");
                     request.getRequestDispatcher("SolicitudInspeccion.jsp").forward(request, response);
                 } else {
-                    request.setAttribute("err", "Error al enviar la solicitud no guarda, pero hace avanzar la secuencia");
+                    request.setAttribute("err", "Error al enviar la solicitud");
                     request.getRequestDispatcher("SolicitudInspeccion.jsp").forward(request, response);
                 }
             } else {

@@ -58,5 +58,21 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/ws"/>
         <delete dir="${build.generated.dir}/jax-wsCache/WS_Pago"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-WSLOGIN, wsimport-client-WS_Pago"/>
+    <target name="wsimport-client-WS_Credito" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/WS_Credito"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/WS_Credito" destdir="${build.generated.dir}/jax-wsCache/WS_Credito" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/WS_Credito/wsdl/localhost_14605/Servidor_WS/WS_Credito.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:14605/Servidor_WS/WS_Credito?WSDL" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/WS_Credito/wsdl/localhost_14605/Servidor_WS/WS_Credito.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/WS_Credito"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/WS_Credito">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-WS_Credito" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/ws"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/WS_Credito"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-WSLOGIN, wsimport-client-WS_Pago, wsimport-client-WS_Credito"/>
 </project>
