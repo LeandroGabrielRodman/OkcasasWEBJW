@@ -31,7 +31,7 @@
                                     <td><input type="text" name="txtAsunto" class="form-control" required></td>
                                 </tr>
                                 <tr>
-                                    <td>Destinatario</td>
+                                    <td>Mensaje</td>
                                     <td><textarea  name="txtMensaje" rows="5" class="form-control" required></textarea></td>
                                 </tr>
                                 <tr>

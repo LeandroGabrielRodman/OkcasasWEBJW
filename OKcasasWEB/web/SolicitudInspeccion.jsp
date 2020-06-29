@@ -40,8 +40,12 @@
                     </c:if>
 
                     <div class="titulos">
-                        <span class="title">Complete su solicitud</span>    
+                        <span class="title">Complete su solicitud</span>
                     </div>
+                    <c:if test="${tecnicos>0}">                        
+                            <h6>En este momento, hay ${tecnicos} técnicos disponibles</h6>
+                    </c:if>
+
                     <form action="servletSolicitud" class="needs-validation" method="POST">    
 
                         <label for="Rut">RUT Cliente ${username}</label>

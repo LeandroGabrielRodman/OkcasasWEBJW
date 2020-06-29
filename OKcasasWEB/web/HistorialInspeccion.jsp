@@ -7,7 +7,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <link href="CSS/Style.css" rel="stylesheet" type="text/css"/>
 <link href="CSS/StyleHistorialInspeccion.css" rel="stylesheet" type="text/css"/>
-
 <title>Historial inspeccion
 </title>
 </head>

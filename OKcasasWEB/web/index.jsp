@@ -26,11 +26,10 @@
 
 
         <nav class="navbar navbar-expand-lg navbar-toggler bg-dark " >
-            <img src="IMG/circle-cropped.png" width="75px">
+            <a href="Inicio.jsp"><img src="IMG/circle-cropped.png" width="75px"></a>
             <div class="container-fluid">
 
                 <ul class="nav navbar-nav ">
-                    <li class="nav-item"><a href="Inicio.jsp" class="nav-link">Inicio</a></li>
                         <c:if test="${tipo!=null}">
                             <c:if test="${tipo=='A'}">
                             <!OPCIONES DEL ADMINISTRADOR>

@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import ws.WSLOGIN;
 import ws.WSLOGIN_Service;
+import ws.WSCredito;
+import ws.WSCredito_Service;
 
 
 
@@ -89,6 +91,12 @@ public class servletLogin extends HttpServlet {
         //creamos el cliente del WS
         WSLOGIN_Service servicio = new WSLOGIN_Service();
         WSLOGIN cliente = servicio.getWSLOGINPort();
+        WSCredito_Service servicio2 = new WSCredito_Service();
+        WSCredito cliente2 = servicio2.getWSCreditoPort();
+        
+        int tecnicos = cliente2.TecnicosDisponiblesWeb();
+        sesion.setAttribute("tecnicos", tecnicos);
+        
         
         //validamos el ws 
         

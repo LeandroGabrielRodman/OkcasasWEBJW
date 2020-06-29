@@ -6,7 +6,6 @@
 package DAO;
 
 import Clases.Inspeccion;
-import Clases.Usuario;
 import Conexion.Conexion;
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -51,7 +50,7 @@ public class InspeccionDAO {
                 ins.setCelular(rs.getInt("celular"));
                 ins.setCorreo(rs.getString("correo"));
                 ins.setRut(rs.getInt("cliente_rut"));
-                ins.setEtapa((char) rs.getInt("etapa"));
+                ins.setEtapa(rs.getString("etapa").charAt(0));
                 ins.setCodigo_inspeccion(rs.getInt("codigo_inspeccion"));
                 ins.setMonto(rs.getInt("monto"));
 
